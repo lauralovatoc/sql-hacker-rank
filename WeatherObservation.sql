@@ -1,0 +1,36 @@
+/* Weather Observation 1 */
+SELECT CITY, STATE FROM STATION;
+
+/* Weather Observation 2 */
+
+
+/* Weather Observation 3 */
+SELECT DISTINCT CITY FROM STATION WHERE ID%2=0;
+
+/* Weather Observation 4 */
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+
+/* Weather Observation 5 */
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) ASC, CITY LIMIT 1;
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) DESC, CITY LIMIT 1;
+
+/* Weather Observation 6 */
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) IN ('A','E','I','O','U');
+
+/* Weather Observation 7 */
+SELECT DISTINCT CITY FROM STATION WHERE RIGHT(CITY, 1) IN ('A','E','I','O','U');
+
+/* Weather Observation 8 */
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) IN ('A','E','I','O','U') AND RIGHT(CITY, 1) IN ('A','E','I','O','U');
+
+/* Weather Observation 9 */
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) NOT IN ('A','E','I','O','U');
+
+/* Weather Observation 10 */
+SELECT DISTINCT CITY FROM STATION WHERE RIGHT(CITY, 1) NOT IN ('A','E','I','O','U');
+
+/* Weather Observation 11 */
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) NOT IN ('A','E','I','O','U') OR RIGHT(CITY, 1) NOT IN ('A','E','I','O','U');
+
+/* Weather Observation 12 */
+SELECT DISTINCT CITY FROM STATION WHERE LEFT(CITY, 1) NOT IN ('A','E','I','O','U') AND RIGHT(CITY, 1) NOT IN ('A','E','I','O','U');
