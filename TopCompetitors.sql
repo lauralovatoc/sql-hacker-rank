@@ -1,0 +1,1 @@
+SELECT h.hacker_id, h.name FROM HACKERS h JOIN SUBMISSIONS s ON s.hacker_id = h.hacker_id JOIN CHALLENGES c ON c.challenge_id = s.challenge_id JOIN DIFFICULTY d ON d.difficulty_level = c.difficulty_level WHERE d.score = s.score GROUP BY h.hacker_id, h.name HAVING COUNT(.h.hacker_id)>1 ORDER BY COUNT(s.hacker_id) DESC, h.hacker_id ASC;
