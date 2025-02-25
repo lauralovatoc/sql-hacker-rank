@@ -55,3 +55,8 @@ SELECT ROUND(ABS(MAX(LAT_N) - MIN(LAT_N)) + ABS(MAX(LONG_W) - MIN(LONG_W)),4) FR
 
 /* Weather Observation 19 */
 SELECT ROUND(SQRT(POWER(MAX(LAT_N) - MIN(LAT_N),2) + POWER(MAX(LONG_W) - MIN(LONG_W),2)),4) FROM STATION;
+
+/** Weather Observation 20 */
+SELECT ROUND(LAT_N,4) FROM (SELECT LAT_N, ROW_NUMBER() OVER(ORDER BY LAT_N ASC) AS row_num, (SELECT COUNT(*) FROM STATION) AS total_count FROM STATION ) sub_table WHERE row_num = (total_count+1)/2;
+/*sub_table --> alias = nome alternativo para coluna ou tabela
++1 -> se tiver 1 coluna /2*/
